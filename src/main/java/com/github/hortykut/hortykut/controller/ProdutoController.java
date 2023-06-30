@@ -28,7 +28,7 @@ public class ProdutoController {
     public Produto criarProduto(@RequestBody Produto produto){
         return produtoRepository.save(produto);
     }
-    @PutMapping("/{id}")
+    @PutMapping
     public Produto atualizarProduto(@PathVariable Long id, @RequestBody Produto produtoAtualizado) {
         Optional<Produto> produtoExistente = produtoRepository.findById(id);
 
