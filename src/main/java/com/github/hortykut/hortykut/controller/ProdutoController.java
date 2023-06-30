@@ -28,20 +28,20 @@ public class ProdutoController {
     public Produto criarProduto(@RequestBody Produto produto){
         return produtoRepository.save(produto);
     }
-    @PutMapping("/{id}")
-    public Produto atualizarProduto(@PathVariable Long id, @RequestBody Produto produtoAtualizado) {
-        Optional<Produto> produtoExistente = produtoRepository.findById(id);
+   @PutMapping
+    public Produto atualizarProduto(@RequestBody Produto produtoAtualizado) {
+        Optional<Produto> produtoExistente = produtoRepository.findById(produtoAtualizado.getId());
 
         if (produtoExistente.isPresent()) {
-        	Produto produto = produtoExistente.get();
+            Produto produto = produtoExistente.get();
             produto.setProduto(produtoAtualizado.getProduto());
             produto.setResponsavel(produtoAtualizado.getResponsavel());
             produto.setValor(produtoAtualizado.getValor());
-		 produto.setDescricao(produtoAtualizado.getDescricao());
-		produto.setFoto(produtoAtualizado.getFoto());
+         produto.setDescricao(produtoAtualizado.getDescricao());
+        produto.setFoto(produtoAtualizado.getFoto());
             return produtoRepository.save(produto);
         } else {
-            throw new IllegalArgumentException("ID do usuário inválido: " + id);
+            throw new IllegalArgumentException("ID do usuário inválido: " + produtoAtualizado.getId());
         }
     }
     @DeleteMapping("/{id}")
