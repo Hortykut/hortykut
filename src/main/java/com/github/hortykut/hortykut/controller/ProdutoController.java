@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/produto")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")	
 public class ProdutoController {
 	
     @Autowired
@@ -28,8 +28,6 @@ public class ProdutoController {
     public Produto criarProduto(@RequestBody Produto produto){
         return produtoRepository.save(produto);
     }
-
-
    @PutMapping
     public Produto atualizarProduto(@RequestBody Produto produtoAtualizado) {
         Optional<Produto> produtoExistente = produtoRepository.findById(produtoAtualizado.getId());
