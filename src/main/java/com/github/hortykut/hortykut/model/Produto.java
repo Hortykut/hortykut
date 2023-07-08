@@ -7,31 +7,46 @@ import jakarta.validation.constraints.NotNull;
 @Entity
 @Table(name = "tb_produto")
 public class Produto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @NotBlank(message = "Este campo é obrigatório")
-    private String produto;
-    
-    @NotNull(message = "Este campo é obrigatório")
-    private double valor;
-    
-    @NotBlank(message = "Este campo é obrigatorio")
-    private String responsavel;
-	
+	@NotBlank(message = "Este campo é obrigatório")
+	private String titulo;
+
+	@NotNull(message = "Este campo é obrigatório")
+	private double valor;
+
 	@NotBlank(message = "Este campo é obrigatorio")
-    private String descricao;
-    
-	@ManyToOne
-    @JoinColumn(name = "categoria_id")
-    private Categoria categoria;
-    
-    @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+	private String responsavel;
+
+	@NotBlank(message = "Este campo é obrigatorio")
+	private String descricao;
 
 	private String foto;
+
+	@ManyToOne
+	@JoinColumn(name = "categoria_id")
+	private Categoria categoria;
+
+	@ManyToOne
+	@JoinColumn(name = "usuario_id")
+	private Usuario usuario;
+
+	public Produto() {
+	}
+
+	public Produto(Long id, String titulo, double valor, String responsavel, String descricao, Categoria categoria,
+			Usuario usuario, String foto) {
+		this.id = id;
+		this.titulo = titulo;
+		this.valor = valor;
+		this.responsavel = responsavel;
+		this.descricao = descricao;
+		this.categoria = categoria;
+		this.usuario = usuario;
+		this.foto = foto;
+	}
 
 	public String getFoto() {
 		return foto;
@@ -48,7 +63,7 @@ public class Produto {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -57,12 +72,12 @@ public class Produto {
 		this.id = id;
 	}
 
-	public String getProduto() {
-		return produto;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setProduto(String produto) {
-		this.produto = produto;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public double getValor() {
