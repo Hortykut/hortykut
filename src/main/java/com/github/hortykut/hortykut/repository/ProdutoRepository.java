@@ -1,13 +1,12 @@
 package com.github.hortykut.hortykut.repository;
 
-import java.util.List;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.github.hortykut.hortykut.model.Produto;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
-	public List<Produto> findByProduto(String produto);
-	
+	List<Produto> findAllByTituloContainingIgnoreCase(@Param("titulo") String titulo);
 }
