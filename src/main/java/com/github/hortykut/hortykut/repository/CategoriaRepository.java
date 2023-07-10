@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.github.hortykut.hortykut.model.Categoria;
 
-
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
 	public List<Categoria> findAllByDescricaoContainingIgnoreCase(@Param("descricao") String descricao);

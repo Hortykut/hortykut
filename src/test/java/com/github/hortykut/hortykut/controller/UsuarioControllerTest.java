@@ -1,8 +1,9 @@
 package com.github.hortykut.hortykut.controller;
 
-import com.github.hortykut.hortykut.model.Usuario;
-import com.github.hortykut.hortykut.repository.UsuarioRepository;
-import com.github.hortykut.hortykut.service.UsuarioService;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.Optional;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,9 +16,9 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.github.hortykut.hortykut.model.Usuario;
+import com.github.hortykut.hortykut.repository.UsuarioRepository;
+import com.github.hortykut.hortykut.service.UsuarioService;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
