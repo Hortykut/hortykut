@@ -12,88 +12,88 @@ public class Produto {
     private Long id;
 
     @NotBlank(message = "Este campo é obrigatório")
-    private String produto;
-    
+    private String titulo;
+
     @NotNull(message = "Este campo é obrigatório")
     private double valor;
-    
+
     @NotBlank(message = "Este campo é obrigatorio")
     private String responsavel;
-	
-	@NotBlank(message = "Este campo é obrigatorio")
+
+    @NotBlank(message = "Este campo é obrigatorio")
     private String descricao;
-    
-	@ManyToOne
+
+    @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
-    
+
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
-	private String foto;
+    private String foto;
 
-	public String getFoto() {
-		return foto;
-	}
+    public String getFoto() {
+        return foto;
+    }
 
-	public void setFoto(String foto) {
-		this.foto = foto;
-	}
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
 
-	public String getDescricao() {
-		return descricao;
-	}
+    public String getDescricao() {
+        return descricao;
+    }
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-	
-	public Long getId() {
-		return id;
-	}
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getProduto() {
-		return produto;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setProduto(String produto) {
-		this.produto = produto;
-	}
+    public String getTitulo() {
+        return titulo;
+    }
 
-	public double getValor() {
-		return valor;
-	}
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
+    public double getValor() {
+        return valor;
+    }
 
-	public String getResponsavel() {
-		return responsavel;
-	}
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
 
-	public void setResponsavel(String responsavel) {
-		this.responsavel = responsavel;
-	}
+    public String getResponsavel() {
+        return responsavel;
+    }
 
-	public Categoria getCategoria() {
-		return categoria;
-	}
+    public void setResponsavel(String responsavel) {
+        this.responsavel = responsavel;
+    }
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
+    public Categoria getCategoria() {
+        return categoria;
+    }
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }

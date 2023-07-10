@@ -17,19 +17,19 @@ public class SwaggerConfig {
     OpenAPI springBlogPessoalOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Projeto Blog Pessoal")
-                        .description("Projeto Blog Pessoal - Generation Brasil")
+                        .title("Projeto Hortykut")
+                        .description("Projeto Hortykut - Generation Brasil")
                         .version("v0.0.1")
                         .license(new License()
                                 .name("Generation Brasil")
                                 .url("https://brazil.generation.org/"))
                         .contact(new Contact()
-                                .name("Generation Brasil")
-                                .url("https://github.com/conteudoGeneration")
-                                .email("conteudogeneration@generation.org")))
+                                .name("Integrantes do grupo")
+                                .url("")
+                                .email("")))
                 .externalDocs(new ExternalDocumentation()
                         .description("Github")
-                        .url("https://github.com/conteudoGeneration/"));
+                        .url("https://github.com/HortykutEmpresa/hortykut"));
     }
 
 
