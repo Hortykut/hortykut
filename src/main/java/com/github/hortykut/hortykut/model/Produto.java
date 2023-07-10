@@ -7,108 +7,93 @@ import jakarta.validation.constraints.NotNull;
 @Entity
 @Table(name = "tb_produto")
 public class Produto {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@NotBlank(message = "Este campo é obrigatório")
-	private String titulo;
+    @NotBlank(message = "Este campo é obrigatório")
+    private String titulo;
 
-	@NotNull(message = "Este campo é obrigatório")
-	private double valor;
+    @NotNull(message = "Este campo é obrigatório")
+    private double valor;
 
-	@NotBlank(message = "Este campo é obrigatorio")
-	private String responsavel;
+    @NotBlank(message = "Este campo é obrigatorio")
+    private String responsavel;
 
-	@NotBlank(message = "Este campo é obrigatorio")
-	private String descricao;
+    @NotBlank(message = "Este campo é obrigatorio")
+    private String descricao;
 
-	private String foto;
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
 
-	@ManyToOne
-	@JoinColumn(name = "categoria_id")
-	private Categoria categoria;
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
-	@ManyToOne
-	@JoinColumn(name = "usuario_id")
-	private Usuario usuario;
+    private String foto;
 
-	public Produto() {
-	}
+    public String getFoto() {
+        return foto;
+    }
 
-	public Produto(Long id, String titulo, double valor, String responsavel, String descricao, Categoria categoria,
-			Usuario usuario, String foto) {
-		this.id = id;
-		this.titulo = titulo;
-		this.valor = valor;
-		this.responsavel = responsavel;
-		this.descricao = descricao;
-		this.categoria = categoria;
-		this.usuario = usuario;
-		this.foto = foto;
-	}
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
 
-	public String getFoto() {
-		return foto;
-	}
+    public String getDescricao() {
+        return descricao;
+    }
 
-	public void setFoto(String foto) {
-		this.foto = foto;
-	}
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
-	public String getDescricao() {
-		return descricao;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public String getTitulo() {
+        return titulo;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-	public String getTitulo() {
-		return titulo;
-	}
+    public double getValor() {
+        return valor;
+    }
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
 
-	public double getValor() {
-		return valor;
-	}
+    public String getResponsavel() {
+        return responsavel;
+    }
 
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
+    public void setResponsavel(String responsavel) {
+        this.responsavel = responsavel;
+    }
 
-	public String getResponsavel() {
-		return responsavel;
-	}
+    public Categoria getCategoria() {
+        return categoria;
+    }
 
-	public void setResponsavel(String responsavel) {
-		this.responsavel = responsavel;
-	}
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 
-	public Categoria getCategoria() {
-		return categoria;
-	}
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }
